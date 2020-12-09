@@ -12,8 +12,14 @@
         return $ip;
     }
     ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
-    // $connect = new PDO('mysql:hostname=localhost;port=3306;dbname=id15581085_attendance', 'vatsan_php', 'Brainless-2109');
-    $connect = new PDO('mysql:host=remotemysql.com;dbname=VWYSNpIlh4;charset=utf8mb4', 'VWYSNpIlh4', 'O62vcpFSIJ');
+    $host = "";
+    $dbname = "";
+    $username = ""; 
+    $pass = "";
+    $port = "";
+    $connect = new PDO('mysql:host=$host;dbname=$dbname;charset=utf8mb4', '$username', '$pass'); //for ecxternal databases
+    $connect = new PDO('mysql:host=$host;port=$port;dbname=$dbname', '$username', '$pass'); //for localhost databases
+
     $request_ip = getIP();
 
     $posted = $connect->query("SELECT * FROM ips WHERE IP='$request_ip' AND Request='Yes' AND Post='Yes'");
