@@ -1,9 +1,14 @@
 <?php
     session_start();
-    // $connect = new PDO("mysql:hostname=localhost;port=3306;dbname=id15581085_attendance", 'vatsan_php', 'Brainless-2109');
-    $connect = new PDO('mysql:host=remotemysql.com;dbname=VWYSNpIlh4;charset=utf8mb4', 'VWYSNpIlh4', 'O62vcpFSIJ');
+    $host = "";
+    $dbname = "";
+    $username = ""; 
+    $pass = "";
+    $port = "";
+    $connect = new PDO('mysql:host=$host;dbname=$dbname;charset=utf8mb4', '$username', '$pass'); //for ecxternal databases
+    $connect = new PDO('mysql:host=$host;port=$port;dbname=$dbname', '$username', '$pass'); //for localhost databases
     if (isset($_POST['pass'])) {
-        if ($_POST['pass'] == "vatsan_admin_2109") {
+        if ($_POST['pass'] == "admin") {
             $result = $connect->query("SELECT * FROM passwords");
             echo "<table class='table table-responsive text-white'><tr><th>Subject</th><th>Pass</th></tr>";
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
