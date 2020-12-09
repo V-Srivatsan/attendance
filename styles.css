@@ -1,0 +1,12 @@
+body {
+	background-color: rgb(24, 26, 27);
+	color: rgb(232 230 227) !important;
+}
+
+#text-area {
+    margin: 5vw 5vh;
+}
+
+input, select, button {
+    border-radius: 10px;
+}
